@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #E2E7EC url('Background.png');
+    margin: 0;
+}
+
+.frame {
+    height: 100%;
+    margin: auto;
+    padding: 0 2%;
+    position: relative;
+    width: 56%;
+}
+
+.frame-content {
+    position: relative;
+}
+
+/** @section Preview */
+
+.preview {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.preview-content {
+    height: 100%;
+    position: relative;
+}
+
+.preview-col {
+    background: #FFFFFF;
+    display: inline;
+    float: left;
+    filter: alpha(opacity=40);
+    height: 100%;
+    opacity: 0.4;
+    position: relative;;
+}
+
+.preview-col_alternative {
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
