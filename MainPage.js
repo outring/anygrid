@@ -51,9 +51,13 @@
         try {
             grid = descriptor.getGrid(newColsCount, newGutterWidth);
             $preview.css({ marginRight: 100 - grid.getContainerWidth() + "%" });
+            var $previewPlaceholder = $preview.after('<div />').next();
+            $preview.detach();
             if (newColsCount > cols.length)
                 generateCols(newColsCount - cols.length);
             fixView(newColsCount, newGutterWidth);
+            $previewPlaceholder.after($preview);
+            $previewPlaceholder.remove();
         }
         catch (e) {
         }
