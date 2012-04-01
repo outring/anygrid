@@ -9,7 +9,7 @@
 
     var $preview = $('#Preview');
     var cols = $preview.children();
-    var $colsCountInput = $('#ColsCountInput');
+    var $columnsNumberInput = $('#ColumnsNumberInput');
     var $gutterWidthInput = $('#GutterWidthInput');
     var $colTemplate = $('<div />', { class: "preview-col" });
 
@@ -38,7 +38,7 @@
     }
 
     function regenerate() {
-        var newColsCount = $colsCountInput.val();
+        var newColsCount = $columnsNumberInput.val();
         var newGutterWidth = $gutterWidthInput.val();
         if (newColsCount === "" || newGutterWidth === "")
             return;
@@ -59,11 +59,16 @@
         }
     }
 
-    $colsCountInput.add($gutterWidthInput).bind('keyup change', regenerate);
+    $columnsNumberInput.add($gutterWidthInput).bind('keyup change', regenerate);
 
-    $colsCountInput.val(defaultGridCols);
+    $columnsNumberInput.val(defaultGridCols);
     $gutterWidthInput.val(defaultGutterWidth);
 
     regenerate();
+
+    $('#GetCodeButton').click(function() {
+        var generator = new CssGenerator(grid, { prefix: "g-" });
+        var win = window.open('data:text/css,' + encodeURIComponent(generator.getCode()));
+    });
 
 })(jQuery);

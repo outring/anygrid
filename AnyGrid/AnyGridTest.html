@@ -28,16 +28,24 @@
         width = grid.getContainerWidth();
     }
     catch (e) {
-
     }
     tests.push('Min grid cols: ' + (width === undefined));
 
+    width = undefined;
+    try {
+        var grid = descriptor.getGrid(5, 5);
+        width = grid.getContainerWidth();
+    }
+    catch (e) {
+    }
+    tests.push('Negative container width: ' + (width === undefined));
+
+    width = undefined;
     try {
         var grid = descriptor.getGrid(5, 25);
         width = grid.getContainerWidth();
     }
     catch (e) {
-
     }
     tests.push('Max gutter width: ' + (width === undefined));
 

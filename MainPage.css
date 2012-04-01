@@ -3,6 +3,7 @@ html, body {
 }
 
 body {
+    font: 112%/1 normal normal 'Segoe UI', sans-serif;
     background: #E2E7EC url('Background.png');
     margin: 0;
 }
@@ -10,9 +11,9 @@ body {
 .frame {
     height: 100%;
     margin: auto;
-    padding: 0 2%;
+    padding: 0 20px;
     position: relative;
-    width: 56%;
+    width: 460px;
 }
 
 .frame-content {
@@ -23,10 +24,11 @@ body {
 
 .preview {
     height: 100%;
-    left: 0;
+    left: 10%;
+    overflow: hidden;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 80%;
 }
 
 .preview-content {
@@ -47,4 +49,94 @@ body {
 .preview-col_alternative {
     filter: alpha(opacity=60);
     opacity: 0.6;
+}
+
+/** @section Form */
+
+.form {
+    -moz-border-radius: 20px;
+    -moz-box-shadow: #C6C6C6 2px 2px 2px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: #C6C6C6 2px 2px 2px;
+    padding: 30px;
+}
+
+.form-line {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-line_last {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: inline-block;
+    width: 36%;
+}
+
+.form-input {
+    -moz-border-radius: 5px;
+    -moz-box-shadow: #D6D6D6 1px 1px 2px inset;
+    -moz-box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    border: 1px solid;
+    border-color: #BFBFBF #CCCCCC #D7D7D7 #CCCCCC;
+    border-radius: 5px;
+    box-shadow: #D6D6D6 1px 1px 2px inset;
+    box-sizing: border-box;
+    font-size: 100%;
+    padding: 5px;
+    width: 16%;
+}
+
+.form-buttonWrap {
+    -moz-box-sizing: border-box;
+    bottom: 0;
+    box-sizing: border-box;
+    left: 0;
+    padding: 30px;
+    position: absolute;
+    text-align: right;
+    width: 100%;
+}
+
+.form-button {
+    -moz-box-shadow: #C6C6C6 1px 1px 2px, #FFFFFF 1px 1px 2px inset;
+    -moz-border-radius: 3px;
+    -moz-box-sizing: border-box;
+    -webkit-box-shadow: #C6C6C6 1px 1px 2px, #FFFFFF 1px 1px 2px inset;
+    -webkit-border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#DCDCDC));
+    background: -moz-linear-gradient(top,  #F5F5F5, #DCDCDC);
+    background: linear-gradient(top,  #F5F5F5, #DCDCDC);
+    border: 1px solid;
+    border-color: #E5E5E5 #CDCDCD #ACACAC #CDCDCD;
+    border-radius: 3px;
+    box-shadow: #C6C6C6 1px 1px 2px, #FFFFFF 1px 1px 2px inset;
+    box-sizing: border-box;
+    font-size: 100%;
+    padding: 5px 0;
+    position: relative;
+    width: 32%;
+    z-index: 1;
+}
+
+.form-button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#E0E0E0));
+    background: -moz-linear-gradient(top,  #FFFFFF, #E0E0E0);
+    background: linear-gradient(top,  #FFFFFF, #E0E0E0);
+}
+
+.form-button:active {
+    -moz-box-shadow: #FFFFFF 1px 1px 2px inset;
+    -webkit-box-shadow: #FFFFFF 1px 1px 2px inset;
+    box-shadow: #FFFFFF 1px 1px 2px inset;
+    left: 1px;
+    top: 1px;
 }

@@ -1,6 +1,8 @@
 function AnyGrid(containerCols, gridCols, gutterWidth) {
     if (gridCols < containerCols)
         throw new Error("Container cols number can't be less than grid cols");
+    if (gridCols === containerCols && gutterWidth > 0)
+        throw new Error("Container cols number can't be less than grid cols");
     this.__containerCols = containerCols;
     this.gridCols = gridCols;
     this.__maxColWidth = 100 / containerCols;
