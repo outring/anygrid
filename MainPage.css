@@ -17,7 +17,20 @@ body {
 }
 
 .frame-content {
+    padding-top: 1px;
     position: relative;
+}
+
+.logo {
+    background: url('Logo.png');
+    height: 105px;
+    left: -133px;
+    margin: 45px 0 35px;
+    margin-left: 50%;
+    overflow: hidden;
+    position: relative;
+    text-indent: -999em;
+    width: 267px;
 }
 
 /** @section Preview */
@@ -93,6 +106,16 @@ body {
     font-size: 100%;
     padding: 5px;
     width: 16%;
+}
+
+.form-hint {
+    color: #264355;
+    display: block;
+    font-size: 0.6em;
+    left: 36%;
+    margin-left: 10px;
+    margin-top: 3px;
+    position: absolute;
 }
 
 .form-buttonWrap {
