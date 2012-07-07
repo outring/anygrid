@@ -13,8 +13,8 @@
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
-                w.yaCounter13577966 = new Ya.Metrika({id:13577966, enableAll: true, webvisor:true});
-            } catch(e) {}
+                w.yaCounter13577966 = new Ya.Metrika({id: 13577966, enableAll: true, webvisor: true});
+            } catch (e) {}
         });
 
         var n = d.getElementsByTagName("script")[0],
@@ -29,7 +29,9 @@
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="//mc.yandex.ru/watch/13577966" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+    <div><img src="//mc.yandex.ru/watch/13577966" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 
 <div class="preview">
@@ -59,14 +61,13 @@
     </div>
 </div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="AnyGrid/CssStylesheet/CssStylesheet.js"></script>
-<script type="text/javascript" src="AnyGrid/CssStylesheet/CssRule.js"></script>
-<script type="text/javascript" src="AnyGrid/CssStylesheet/CssProperty.js"></script>
-<script type="text/javascript" src="AnyGrid/AnyGrid.js"></script>
-<script type="text/javascript" src="AnyGrid/AnyGridDescriptor.js"></script>
-<script type="text/javascript" src="AnyGrid/CssGenerator.js"></script>
-<script type="text/javascript" src="MainPage.js"></script>
+<script src="Lib/Curl/curl.js"></script>
+<script>
+    curl({ paths: { curl: './Lib/Curl/curl' } }, ['./MainPage'])
+        .then(function (MainPage) {
+                new MainPage();
+            });
+</script>
 
 </body>
 </html>
