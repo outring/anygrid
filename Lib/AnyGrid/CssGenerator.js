@@ -77,6 +77,6 @@ define(["./CssStylesheet/CssStylesheet"], function(CssStylesheet) {
         }
     };
 
-    return CssStylesheet;
+    return CssGenerator;
 
 });

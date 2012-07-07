@@ -35,7 +35,7 @@ define(
                     self.__generator.setGutterWidth(this.value);
                 });
                 this.__$getCodeButton.click(function () {
-                    var generator = new CssGenerator(this.__generator.getGrid(), { prefix: "g-" });
+                    var generator = new CssGenerator(self.__generator.getGrid(), { prefix: "g-" });
                     window.open('data:text/css,' + encodeURIComponent(generator.getCode()));
                 });
             }
