@@ -13,7 +13,7 @@ define(["./CssRule"], function(CssRule) {
             return rule;
         },
         toString: function () {
-            return this.__rules.join("\n\n");
+            return this.__rules.join("\r\n\r\n");
         }
     };
 

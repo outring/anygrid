@@ -31,12 +31,21 @@ define(function () {
         getBlockOffset: function (offset) {
             return this.__maxColWidth * (offset - 1);
         },
-        getRestoreWidth: function (colBlockWidth) {
-            var width = 100 * 100 / this.getBlockWidth(colBlockWidth);
-            return this.__round(width);
+        getRestoreWidth: function (width) {
+            var restoreWidth = 1 / width * 100;
+            return this.__round(restoreWidth);
+        },
+        getRestoredContainerWidth: function () {
+            return this.__containerCols * 100;
+        },
+        getRestoredInitialWidth: function () {
+            return this.gridCols * 100;
+        },
+        getRestoredOffset: function (offset) {
+            return 100 * (offset - 1) * -1;
         },
         __round: function (float) {
-            return (Math.round(parseFloat(float) * 100) / 100).toFixed(2);
+            return Math.round(float * 100) / 100;
         }
     };
 

@@ -13,9 +13,9 @@ define(["./CssProperty"], function(CssProperty) {
         toString: function () {
             return [
                 this.__selector + " {",
-                this.__properties.join("\n"),
+                this.__properties.join("\r\n"),
                 "}"
-            ].join("\n");
+            ].join("\r\n");
         }
     };
 

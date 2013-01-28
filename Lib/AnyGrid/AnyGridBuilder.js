@@ -1,12 +1,12 @@
 define(["./AnyGrid"], function (AnyGrid) {
 
-    function AnyGridDescriptor(containerCols) {
+    function AnyGridBuilder(containerCols) {
         this.__containerCols = containerCols || 5;
         if (100 % this.__containerCols !== 0)
             throw new Error("Wrong cols count");
     }
 
-    AnyGridDescriptor.prototype = {
+    AnyGridBuilder.prototype = {
         getMaxColWidth: function () {
             return 100 / this.__containerCols;
         },
@@ -15,6 +15,6 @@ define(["./AnyGrid"], function (AnyGrid) {
         }
     };
 
-    return AnyGridDescriptor;
+    return AnyGridBuilder;
 
 });

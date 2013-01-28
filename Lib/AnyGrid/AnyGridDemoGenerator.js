@@ -1,4 +1,4 @@
-define(["./AnyGridDescriptor"], function (AnyGridDescriptor) {
+define(["./AnyGridBuilder"], function (AnyGridBuilder) {
 
     function DemoGridGenerator(options) {
         this.__init(options);
@@ -8,7 +8,7 @@ define(["./AnyGridDescriptor"], function (AnyGridDescriptor) {
         __init: function (options) {
             this.__options = options;
             this.__columns = [];
-            this.__descriptor = new AnyGridDescriptor(this.__options.containerColumnsCount);
+            this.__descriptor = new AnyGridBuilder(this.__options.containerColumnsCount);
             this.__gridColumnsCount = this.__options.gridColumnsCount;
             this.__gutterWidth = this.__options.gutterWidth;
             this.__createContainer();
@@ -34,11 +34,16 @@ define(["./AnyGridDescriptor"], function (AnyGridDescriptor) {
             return this.__container;
         },
         setColumnsCount: function (count) {
+	        count = parseInt(count, 10);
+	        if (isNaN(count))
+	            return;
             this.__gridColumnsCount = count;
             this.__updateGrid();
         },
         setGutterWidth: function (width) {
-            //todo validate through descriptor
+	        width = parseInt(width, 10);
+	        if (isNaN(width))
+		        return;
             this.__gutterWidth = width;
             this.__updateGrid();
         },
