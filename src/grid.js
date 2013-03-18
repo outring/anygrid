@@ -18,17 +18,9 @@ var Grid = Extendable.create(function () {
         },
 
         getContainerWidth: function () {
-            return this.__round(this.__getContainerWidth());
-        },
-
-        __getContainerWidth: function () {
-            var width = this.__getGutterlessContainerWidth();
-            width += (width * this.__colRelativeGutterWidth) / this.gridCols;
-            return width;
-        },
-
-        __getGutterlessContainerWidth: function () {
-            return this.__containerCols / this.gridCols * 100;
+            var gutterLessWidth = 100 / this.gridCols * this.__containerCols;
+            var gutterCompensation = gutterLessWidth * this.__colRelativeGutterWidth / this.gridCols;
+            return this.__round(gutterLessWidth + gutterCompensation);
         },
 
         getBlockWidth: function (span) {
