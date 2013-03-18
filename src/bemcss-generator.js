@@ -1,4 +1,4 @@
-var CssGenerator = require('css-generator');
+var CssGenerator = require('./css-generator');
 
 var BemCssGenerator = CssGenerator.extend(function () {
     return {

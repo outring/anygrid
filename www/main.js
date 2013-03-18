@@ -1,6 +1,6 @@
-var DemoGenerator = require('grid-demo-generator');
-var CssGenerator = require('css-generator');
-var BemCssGenerator = require('bemcss-generator');
+var DemoGenerator = require(('./grid-demo-generator'));
+var CssGenerator = require(('./css-generator'));
+var BemCssGenerator = require(('./bemcss-generator'));
 
 var $columnsCountInput = $('#ColumnsNumberInput');
 var $gutterWidthInput = $('#GutterWidthInput');

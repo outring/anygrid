@@ -1,5 +1,5 @@
-var GridBuilder = require('grid-builder');
-var CssGenerator = require('css-generator');
+var GridBuilder = require(('./grid-builder'));
+var CssGenerator = require(('./css-generator'));
 
 var builder = new GridBuilder(5);
 var grid = builder.getGrid(12, 5);

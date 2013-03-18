@@ -1,5 +1,5 @@
 var Extendable = require('lazy-extendable');
-var Grid = require('grid');
+var Grid = require('./grid');
 
 var GridBuilder = Extendable.create(function () {
     return {
@@ -10,8 +10,8 @@ var GridBuilder = Extendable.create(function () {
                 throw new Error("Wrong cols count");
         },
 
-        getMaxColWidth: function () {
-            return 100 / this.__containerCols;
+        getMaxGutterWidth: function () {
+            return 100 / this.__containerCols - 1;
         },
 
         getGrid: function (gridCols, gutterWidth) {

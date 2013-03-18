@@ -1,0 +1,9 @@
+node_modules
+
+.idea
+
+www
+build
+tests
+src/grid-demo-generator.js
+Gruntfile.js

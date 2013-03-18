@@ -1,5 +1,5 @@
 var Extendable = require('lazy-extendable');
-var GridBuilder = require('grid-builder');
+var GridBuilder = require('./grid-builder');
 
 var GridDemoGenerator = Extendable.create(function () {
     return {

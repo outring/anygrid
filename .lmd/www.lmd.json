@@ -8,6 +8,6 @@
 
         "lazy-extendable": "../node_modules/lazy-extendable/lazy-extendable.js",
 
-        "*": "../src/*.js"
+        "./*": "../src/*.js"
     }
 }

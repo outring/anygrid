@@ -1,25 +1,26 @@
 {
     "name": "anygrid",
-    "description": "AnyGrid - flexible fluid css grid",
+    "description": "Fluid CSS grid generator",
     "author": {
         "name": "Vasiliy Aksyonov",
         "email": "outring@gmail.com"
     },
     "version": "0.0.1",
-    "main": "todo",
+    "main": "./src/anygrid.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/artyv/todo.git"
+        "url": "https://github.com/artyv/anygrid.git"
     },
     "keywords": [
         "grid",
         "css",
         "layout"
     ],
-    "dependencies": {},
+    "dependencies": {
+        "lazy-extendable": "~0.0.1-1"
+    },
     "devDependencies": {
         "lmd": "~1.10.6",
-        "lazy-extendable": "0.0.1-1",
         "grunt": "~0.4.1",
         "grunt-cli": "~0.1.6",
         "grunt-lmd": "~0.1.10",
@@ -30,8 +31,5 @@
     },
     "engines": {
         "node": ">= 0.8.0"
-    },
-    "scripts": {
-        "test": "todo"
     }
 }

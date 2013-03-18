@@ -1,5 +1,5 @@
 var Extendable = require('lazy-extendable');
-var CssStylesheet = require('css-stylesheet');
+var CssStylesheet = require('./css-stylesheet');
 
 var CssGenerator = Extendable.create(function () {
     return {
