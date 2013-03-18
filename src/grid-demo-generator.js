@@ -98,10 +98,10 @@ var GridDemoGenerator = Extendable.create(function () {
         },
 
         __setColumnStyle: function (column, offset) {
-            var blockWidth = this.__grid.getBlockWidth(1);
-            column.style.left = this.__grid.getBlockOffset(offset) + "%";
-            column.style.marginRight = blockWidth * -1 + "%";
-            column.style.width = blockWidth + "%";
+            var moduleWidth = this.__grid.getModuleWidth(1);
+            column.style.left = this.__grid.getModuleOffset(offset) + "%";
+            column.style.marginRight = moduleWidth * -1 + "%";
+            column.style.width = moduleWidth + "%";
             this.__toggleColumnAlternativeClass(column, offset);
         },
 

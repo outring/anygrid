@@ -23,11 +23,11 @@ var Grid = Extendable.create(function () {
             return this.__round(gutterLessWidth + gutterCompensation);
         },
 
-        getBlockWidth: function (span) {
+        getModuleWidth: function (span) {
             return this.__maxColWidth * span - this.__gutterWidth;
         },
 
-        getBlockOffset: function (col) {
+        getModuleOffset: function (col) {
             return this.__maxColWidth * (col - 1);
         },
 

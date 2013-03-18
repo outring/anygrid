@@ -1,11 +1,13 @@
 var DemoGenerator = require('grid-demo-generator');
 var CssGenerator = require('css-generator');
+var BemCssGenerator = require('bemcss-generator');
 
 var $columnsCountInput = $('#ColumnsNumberInput');
 var $gutterWidthInput = $('#GutterWidthInput');
 var $getCodeButton = $('#GetCodeButton');
 var $legacyIeSupportCheckbox = $('#LegacyIeSupport');
 var $restoreCheckbox = $('#Restore');
+var $bemCheckbox = $('#Bem');
 
 var demoGenerator = new DemoGenerator({
     containerColumnsCount: 5,
@@ -29,10 +31,16 @@ $gutterWidthInput.bind('keyup change', function () {
 });
 
 $getCodeButton.mousedown(function () {
-    var cssGenerator = new CssGenerator(demoGenerator.getGrid(), {
-        prefix: "g-",
+    var bemModeOn = $bemCheckbox.is(':checked');
+
+    var options = {
+        prefix: bemModeOn ? 'grid' : 'g-',
         legacyIeSupport: $legacyIeSupportCheckbox.is(':checked'),
         restore: $restoreCheckbox.is(':checked')
-    });
+    };
+
+    var grid = demoGenerator.getGrid();
+    var cssGenerator = bemModeOn ? new BemCssGenerator(grid, options) : new CssGenerator(grid, options);
+
     $getCodeButton.attr('href', 'data:text/css,' + encodeURIComponent(cssGenerator.getCode()));
 });

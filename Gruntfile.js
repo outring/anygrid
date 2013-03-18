@@ -9,6 +9,12 @@ module.exports = function (grunt) {
                 files: [
                     { expand: true, cwd: './www/', src: ['*.html', '*.png'], dest: './build/www/' }
                 ]
+            },
+
+            'tests-markup': {
+                files: [
+                    { expand: true, cwd: './tests/markup/', src: ['*.html'], dest: './build/tests-markup/' }
+                ]
             }
         },
 
@@ -39,6 +45,10 @@ module.exports = function (grunt) {
         },
 
         watch: {
+            'www': {
+                files: ['./src/*', './www/*'],
+                tasks: ['www']
+            },
             'tests-markup': {
                 files: ['./src/*', './tests/markup/*'],
                 tasks: ['tests-markup']
@@ -54,6 +64,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('www', ['copy:www', 'concat:www', 'cssmin:www', 'lmd:www']);
-    grunt.registerTask('tests-markup', ['lmd:tests-markup']);
+    grunt.registerTask('tests-markup', ['copy:tests-markup', 'lmd:tests-markup']);
 
 };

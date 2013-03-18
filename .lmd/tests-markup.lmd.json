@@ -1,7 +1,7 @@
 {
     "name": "tests-markup",
     "root": "../tests/markup",
-    "output": "./test.js",
+    "output": "../../build/tests-markup/test.js",
     "main": "main",
     "modules": {
         "main": "main.js",
