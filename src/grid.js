@@ -12,6 +12,7 @@ var Grid = Extendable.create(function () {
             this.gridCols = gridCols;
             this.__maxColWidth = 100 / containerCols;
             this.__gutterWidth = gutterWidth;
+            this.__colRelativeGutterWidth = this.__gutterWidth / this.__maxColWidth;
             if (this.__gutterWidth >= this.__maxColWidth)
                 throw new Error("Gutter width can't be greater than col width")
         },
@@ -22,7 +23,7 @@ var Grid = Extendable.create(function () {
 
         __getContainerWidth: function () {
             var width = this.__getGutterlessContainerWidth();
-            width += (width * this.__gutterWidth / this.__maxColWidth) / this.gridCols;
+            width += (width * this.__colRelativeGutterWidth) / this.gridCols;
             return width;
         },
 
@@ -30,16 +31,16 @@ var Grid = Extendable.create(function () {
             return this.__containerCols / this.gridCols * 100;
         },
 
-        getBlockWidth: function (width) {
-            return this.__maxColWidth * (width - 1) + this.__maxColWidth - this.__gutterWidth;
+        getBlockWidth: function (span) {
+            return this.__maxColWidth * span - this.__gutterWidth;
         },
 
-        getBlockOffset: function (offset) {
-            return this.__maxColWidth * (offset - 1);
+        getBlockOffset: function (col) {
+            return this.__maxColWidth * (col - 1);
         },
 
-        getRestoreWidth: function (width) {
-            var restoreWidth = 1 / width * 100;
+        getRestoreWidth: function (span) {
+            var restoreWidth = 1 / (span - this.__colRelativeGutterWidth) * 100;
             return this.__round(restoreWidth);
         },
 
@@ -48,11 +49,11 @@ var Grid = Extendable.create(function () {
         },
 
         getRestoredInitialWidth: function () {
-            return this.gridCols * 100;
+            return (this.gridCols - this.__colRelativeGutterWidth) * 100;
         },
 
-        getRestoredOffset: function (offset) {
-            return 100 * (offset - 1) * -1;
+        getRestoredOffset: function (col) {
+            return 100 * (col - 1) * -1;
         },
 
         __round: function (float) {

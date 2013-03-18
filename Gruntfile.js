@@ -36,6 +36,13 @@ module.exports = function (grunt) {
                 projectRoot: './',
                 build: 'tests-markup'
             }
+        },
+
+        watch: {
+            'tests-markup': {
+                files: ['./src/*', './tests/markup/*'],
+                tasks: ['tests-markup']
+            }
         }
 
     });
@@ -44,6 +51,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('www', ['copy:www', 'concat:www', 'cssmin:www', 'lmd:www']);
     grunt.registerTask('tests-markup', ['lmd:tests-markup']);
