@@ -2,27 +2,6 @@
 <html>
 <head>
 	<title></title>
-	<script src="../Lib/Curl/curl.js"></script>
-	<script>
-		curl(
-				{
-					baseUrl: './../Lib/AnyGrid',
-					paths: { curl: '../Lib/Curl/curl' }
-				},
-				['./AnyGridBuilder', './AnyGridCssGenerator']
-		)
-				.then(function (AnyGridBuilder, CssGenerator) {
-					var builder = new AnyGridBuilder(5);
-					var grid = builder.getGrid(12, 0);
-					var cssGenerator = new CssGenerator(grid, { prefix: 'g-', legacyIeSupport: true, restore: true });
-					var style = document.createElement("style");
-					style.innerText = cssGenerator.getCode();
-					document.getElementsByTagName("head")[0].appendChild(style);
-				});
-	</script>
-	<style>
-		/*@import "Grid.css";*/
-	</style>
 	<style>
 		.g-row {
 			margin-bottom: 10px;
@@ -220,6 +199,9 @@
 		</div>
 	</div>
 </div>
+
+<!-- grunt tests-markup -->
+<script src="test.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,13 @@
+{
+    "name": "www",
+    "root": "../www",
+    "output": "../build/www/index.js",
+    "main": "main",
+    "modules": {
+        "main": "main.js",
+
+        "lazy-extendable": "../node_modules/lazy-extendable/lazy-extendable.js",
+
+        "*": "../src/*.js"
+    }
+}
