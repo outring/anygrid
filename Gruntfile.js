@@ -1,5 +1,3 @@
-var path = require('path');
-
 module.exports = function (grunt) {
 
     grunt.initConfig({
@@ -13,7 +11,7 @@ module.exports = function (grunt) {
 
             'tests-markup': {
                 files: [
-                    { expand: true, cwd: './tests/markup/', src: ['*.html'], dest: './build/tests-markup/' }
+                    { expand: true, cwd: './tests/markup/', src: ['*.html', '**/*.css', '**/*.png'], dest: './build/tests-markup/' }
                 ]
             }
         },
@@ -50,7 +48,7 @@ module.exports = function (grunt) {
                 tasks: ['www']
             },
             'tests-markup': {
-                files: ['./src/*', './tests/markup/*'],
+                files: ['./src/*', './tests/markup/**/*'],
                 tasks: ['tests-markup']
             }
         }

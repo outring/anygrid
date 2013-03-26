@@ -1,0 +1,30 @@
+.g-12
+{
+    background: url('grid-background.png');
+    margin-bottom: 30px;
+}
+
+.g-row
+{
+    background: url('row-background.png');
+    margin-bottom: 10px;
+}
+
+.revealer
+{
+    background: url('module-background.png');
+    height: 29px;
+    border: 1px solid #ff8f8f;
+}
+
+.g-restore .revealer
+{
+    background: url('restore-background.png');
+    border: 1px solid #48df25;
+}
+
+.g-restore .g-row,
+.g-restore .g-12
+{
+    margin-bottom: 0;
+}
