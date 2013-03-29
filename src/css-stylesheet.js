@@ -3,7 +3,8 @@ var Extendable = require('lazy-extendable');
 var CssStylesheet = Extendable.create(function () {
     return {
 
-        constructor: function () {
+        constructor: function (name) {
+            this.name = name;
             this.__rules = [];
         },
 

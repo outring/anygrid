@@ -11,20 +11,28 @@ var CssGenerator = Extendable.create(function () {
         },
 
         getCode: function () {
-            var stylesheet = new CssStylesheet();
-
-            this._generateContainerStyles(stylesheet);
-            this._generateFirstModuleStyles(stylesheet);
-            this._generateGenericModuleStyles(stylesheet);
-            this._generateSpecificModuleClasses(stylesheet);
-
-            if (this.__options.restore)
-                this._generateRestoreStyles(stylesheet);
-
-            return stylesheet.toString();
+            return this.getStylesheets().join('\n\n');
         },
 
-        _generateContainerStyles: function (s) {
+        getStylesheets: function () {
+
+            var stylesheets = [];
+
+            stylesheets.push(this._generateContainerStyles());
+            stylesheets.push(this._generateGenericModuleStyles());
+            stylesheets.push(this._generateFirstModuleStyles());
+            stylesheets.push(this._generateModuleSpanStyles());
+            stylesheets.push(this._generateModuleColStyles());
+
+            if (this.__options.restore)
+                stylesheets.push(this._generateRestoreStyles());
+
+            return stylesheets;
+        },
+
+        _generateContainerStyles: function () {
+            var s = new CssStylesheet('container');
+
             var containerClass = this._getContainerClass();
             var rowClass = this._getRowClass();
             var containerPressing = 100 - this.__grid.getContainerWidth() + "%";
@@ -49,36 +57,60 @@ var CssGenerator = Extendable.create(function () {
                 .addProperty("clear", "both")
                 .addProperty("content", "''")
                 .addProperty("display", "block");
+
+            return s;
         },
 
-        _generateFirstModuleStyles: function (s) {
-            s.addRule(this._getModuleFirstClass())
-                .addProperty("clear", "left");
-        },
+        _generateGenericModuleStyles: function () {
+            var s = new CssStylesheet('module');
 
-        _generateGenericModuleStyles: function (s) {
             var modulesRule = s.addRule(this._getGenericModuleClass())
                 .addProperty("float", "left")
                 .addProperty("position", "relative");
 
             if (this.__options.legacyIeSupport)
                 modulesRule.addProperty("*display", "inline");
+
+            return s;
         },
 
-        _generateSpecificModuleClasses: function (s) {
+        _generateFirstModuleStyles: function () {
+            var s = new CssStylesheet('first');
+
+            s.addRule(this._getModuleFirstClass())
+                .addProperty("clear", "left");
+
+            return s;
+        },
+
+        _generateModuleSpanStyles: function () {
+            var s = new CssStylesheet('span');
+
             var g = this.__grid;
 
-            for (var i = 1; i <= g.gridCols; i++) {
+            for (var i = 1; i <= g.gridCols; i++)
                 s.addRule(this._getModuleSpanClass(i))
                     .addProperty("margin-right", g.getModuleWidth(i) * -1 + "%")
                     .addProperty("width", g.getModuleWidth(i) + "%");
 
-                s.addRule(this._getModuleColClass(i))
-                    .addProperty("left", g.getModuleOffset(i) + "%");
-            }
+            return s;
         },
 
-        _generateRestoreStyles: function (s) {
+        _generateModuleColStyles: function () {
+            var s = new CssStylesheet('col');
+
+            var g = this.__grid;
+
+            for (var i = 1; i <= g.gridCols; i++)
+                s.addRule(this._getModuleColClass(i))
+                    .addProperty("left", g.getModuleOffset(i) + "%");
+
+            return s;
+        },
+
+        _generateRestoreStyles: function () {
+            var s = new CssStylesheet('restore');
+
             var g = this.__grid;
 
             var restoreClass = this._getRestoreClass();
@@ -106,6 +138,8 @@ var CssGenerator = Extendable.create(function () {
                         this._getModuleColClass(i) + " " + restoreClass + " " + initialClass)
                     .addProperty("left", g.getRestoredOffset(i) + "%");
             }
+
+            return s;
         },
 
         _getContainerClass: function () {
