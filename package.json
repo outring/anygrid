@@ -9,7 +9,7 @@
     "main": "./src/anygrid.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/artyv/anygrid.git"
+        "url": "https://github.com/outring/anygrid.git"
     },
     "keywords": [
         "grid",
