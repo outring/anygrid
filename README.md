@@ -2,7 +2,11 @@
 
 Fluid CSS grid and generator
 
-## Generator
+## Creating grid for your site
+
+Just go to [outring.github.io/anygrid](http://outring.github.io/anygrid/)
+
+## Hacking generator
 
 ### Installation
 
