@@ -5,7 +5,7 @@ html, body {
 body {
 	font: 18px 'Segoe UI', sans-serif;
 	line-height: 1;
-	background: #E2E7EC url('background.png');
+	background: #E2E7EC url('Background.png');
 	margin: 0;
 }
 
@@ -30,7 +30,7 @@ abbr {
 }
 
 .logo {
-	background: url('logo.png');
+	background: url('Logo.png');
 	height: 105px;
 	left: -133px;
 	margin: 45px 0 35px;
